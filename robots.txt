@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kntkn.github.io/cheese-and-company-website/sitemap.xml
