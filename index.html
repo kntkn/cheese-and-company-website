@@ -67,10 +67,6 @@
                 <div class="logo fade-in">
                     <h1 class="logo-text">Cheese & Company</h1>
                 </div>
-                <div class="nav-links fade-in stagger-1">
-                    <a href="#features" class="nav-link">サービス</a>
-                    <a href="#pricing" class="nav-link">料金</a>
-                </div>
             </div>
         </div>
     </nav>
@@ -430,51 +426,20 @@
             <div class="pricing-wrapper">
                 <div class="section-header text-center">
                     <h2 class="section-title slide-up">シンプルな料金体系</h2>
-                    <p class="section-subtitle slide-up stagger-1">初期費用0円、分かりやすい月額料金のみ</p>
-                </div>
-                
-                <!-- Value Proposition -->
-                <div class="pricing-value slide-up stagger-2">
-                    <div class="value-comparison">
-                        <div class="comparison-item traditional">
-                            <h4>従来のLP制作</h4>
-                            <div class="cost-breakdown">
-                                <span class="cost-item">制作費 30-50万円</span>
-                                <span class="cost-item">保守費 月2-5万円</span>
-                                <div class="total-cost">合計 年間50-100万円</div>
-                            </div>
-                        </div>
-                        
-                        <div class="comparison-arrow">
-                            <svg width="60" height="24" viewBox="0 0 60 24" fill="none">
-                                <path d="M2 12L58 12M58 12L52 6M58 12L52 18" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        
-                        <div class="comparison-item our-service featured">
-                            <h4>Cheese & Company</h4>
-                            <div class="cost-breakdown">
-                                <span class="cost-item highlight">制作費 0円</span>
-                                <span class="cost-item highlight">月額のみ</span>
-                                <div class="total-cost success">年間 10万円だけ</div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 
                 <!-- Pricing Plans -->
                 <div class="pricing-plans slide-up stagger-3">
-                    <div class="plan-toggle">
-                        <span class="toggle-label">月払い</span>
-                        <button class="toggle-switch" onclick="switchPricingTab('annual')">
-                            <span class="switch-slider"></span>
+                    <div class="plan-tabs">
+                        <button class="tab-btn" onclick="switchPricingTab('monthly')" id="monthly-tab">月払い</button>
+                        <button class="tab-btn active" onclick="switchPricingTab('annual')" id="annual-tab">
+                            年払い <span class="save-badge">20%お得</span>
                         </button>
-                        <span class="toggle-label recommended">年払い <span class="save-badge">20%お得</span></span>
                     </div>
                     
                     <div class="pricing-card-container">
                         <!-- Monthly Plan -->
-                        <div class="pricing-card monthly-plan" id="monthly-display">
+                        <div class="pricing-card monthly-plan hidden" id="monthly-display">
                             <div class="card-header">
                                 <h3 class="plan-name">月払いプラン</h3>
                                 <div class="price-display">
@@ -575,126 +540,6 @@
         </div>
     </section>
 
-    <!-- Trust Building Section -->
-    <section class="trust-building section" id="trust">
-        <div class="container">
-            <div class="trust-header">
-                <h2 class="section-title slide-up">なぜLPにこだわるべきか</h2>
-                <p class="section-subtitle slide-up stagger-1">実際にご利用いただいた士業の方々の声をご紹介します</p>
-            </div>
-            
-            <div class="testimonials-grid">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card slide-up stagger-2">
-                    <div class="testimonial-content">
-                        <div class="stars">
-                            ⭐⭐⭐⭐⭐
-                        </div>
-                        <blockquote class="testimonial-text">
-                            「サイトを新しくしてから、お問い合わせが3倍に増えました。以前は古いサイトで恥ずかしくて名刺に載せられませんでしたが、今では積極的にご紹介しています。」
-                        </blockquote>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <span class="author-name">田中法律事務所</span>
-                                <span class="author-title">弁護士 田中様</span>
-                            </div>
-                            <div class="author-badge">
-                                年契約利用
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-results">
-                        <h4>導入効果</h4>
-                        <ul>
-                            <li>お問い合わせ数 <strong>300%増加</strong></li>
-                            <li>新規相談件数 <strong>月15件→45件</strong></li>
-                            <li>サイト滞在時間 <strong>2分→5分30秒</strong></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card slide-up stagger-3">
-                    <div class="testimonial-content">
-                        <div class="stars">
-                            ⭐⭐⭐⭐⭐
-                        </div>
-                        <blockquote class="testimonial-text">
-                            「相見積もりの際、『サイトを見て決めました』と言われることが多くなりました。専門性は同じでも、信頼感で選ばれているのを実感します。」
-                        </blockquote>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <span class="author-name">さくら税理士事務所</span>
-                                <span class="author-title">税理士 佐藤様</span>
-                            </div>
-                            <div class="author-badge">
-                                月契約利用
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-results">
-                        <h4>導入効果</h4>
-                        <ul>
-                            <li>成約率 <strong>40%→75%向上</strong></li>
-                            <li>相見積もり勝率 <strong>85%</strong></li>
-                            <li>紹介案件 <strong>月3件→10件</strong></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card slide-up stagger-4">
-                    <div class="testimonial-content">
-                        <div class="stars">
-                            ⭐⭐⭐⭐⭐
-                        </div>
-                        <blockquote class="testimonial-text">
-                            「若いお客様からのご相談が急増しました。『サイトがプロフェッショナルで安心できた』という声をよくいただきます。時代の変化を感じています。」
-                        </blockquote>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <span class="author-name">みらい司法書士事務所</span>
-                                <span class="author-title">司法書士 山田様</span>
-                            </div>
-                            <div class="author-badge">
-                                年契約利用
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-results">
-                        <h4>導入効果</h4>
-                        <ul>
-                            <li>30代以下相談者 <strong>20%→60%</strong></li>
-                            <li>オンライン相談 <strong>月0件→25件</strong></li>
-                            <li>年間売上 <strong>30%向上</strong></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Key Message -->
-            <div class="trust-message slide-up stagger-5">
-                <div class="message-content">
-                    <h3>なぜLPが重要なのか</h3>
-                    <p>士業の方にとって、専門性は当然の前提です。しかし、お客様が最終的に選ぶ決め手は<strong>「信頼感」</strong>。その信頼感を最初に伝えるのが、あなたのWebサイトなのです。</p>
-                    <div class="message-stats">
-                        <div class="stat">
-                            <span class="stat-number">87%</span>
-                            <span class="stat-text">のお客様がサイトを見て依頼を決める</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">初回</span>
-                            <span class="stat-text">訪問の印象が成約を左右</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">3秒</span>
-                            <span class="stat-text">で信頼性を判断される</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Comparison Section -->
     <section class="comparison section-lg" id="comparison">
@@ -831,44 +676,6 @@
                             <span>測定なし</span>
                         </div>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Comparison Summary -->
-            <div class="comparison-summary slide-up stagger-3">
-                <div class="summary-content">
-                    <h3>なぜ士業専門が重要なのか</h3>
-                    <div class="summary-grid">
-                        <div class="summary-item">
-                            <div class="summary-icon">🎯</div>
-                            <h4>業界特化の強み</h4>
-                            <p>士業特有の課題や顧客心理を熟知。一般的な制作会社では理解が困難な専門性を活かしたサイト設計が可能です。</p>
-                        </div>
-                        <div class="summary-item">
-                            <div class="summary-icon">💡</div>
-                            <h4>コスパの最適化</h4>
-                            <p>高額な制作会社と格安サービスの中間で、品質と価格のバランスを最適化。長期的なROIを重視した料金設定です。</p>
-                        </div>
-                        <div class="summary-item">
-                            <div class="summary-icon">🚀</div>
-                            <h4>スピード＋品質</h4>
-                            <p>士業向けテンプレートの蓄積により最短即日を実現。ただし品質は妥協せず、継続的な改善サポートも提供します。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- CTA -->
-            <div class="comparison-cta slide-up stagger-4">
-                <div class="cta-content">
-                    <h3>まずは無料相談から始めませんか？</h3>
-                    <p>あなたの事務所に最適なLP戦略を、無料でご提案いたします</p>
-                    <a href="#contact" class="btn btn-primary btn-large">
-                        無料相談に申し込む
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
                 </div>
             </div>
         </div>

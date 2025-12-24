@@ -3546,6 +3546,58 @@ p {
     transform: translateX(4px);
 }
 
+/* Pricing Tab Updates */
+.plan-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: var(--space-8);
+    background: #f8fafc;
+    border-radius: var(--border-radius-xl);
+    padding: var(--space-2);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    padding: var(--space-4) var(--space-6);
+    border-radius: var(--border-radius-lg);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.tab-btn.active {
+    background: white;
+    color: var(--color-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tab-btn:hover {
+    color: var(--color-primary);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.save-badge {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    font-size: 0.75rem;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    margin-left: var(--space-1);
+}
+
 /* Mobile Responsiveness for Comparison */
 @media (max-width: 768px) {
     .comparison-header-row,

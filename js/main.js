@@ -425,20 +425,27 @@ function scrollToContact() {
 
 // Function for pricing tab switching
 function switchPricingTab(planType) {
-    const toggleSwitch = document.querySelector('.toggle-switch');
+    const monthlyTab = document.querySelector('#monthly-tab');
+    const annualTab = document.querySelector('#annual-tab');
     const monthlyCard = document.querySelector('.monthly-plan');
     const annualCard = document.querySelector('.annual-plan');
     
     if (planType === 'annual') {
         // Switch to annual plan
-        toggleSwitch.classList.add('active');
+        annualTab.classList.add('active');
+        monthlyTab.classList.remove('active');
+        monthlyCard.classList.add('hidden');
         monthlyCard.classList.remove('active');
+        annualCard.classList.remove('hidden');
         annualCard.classList.add('active');
     } else {
         // Switch to monthly plan
-        toggleSwitch.classList.remove('active');
-        monthlyCard.classList.add('active');
+        monthlyTab.classList.add('active');
+        annualTab.classList.remove('active');
+        annualCard.classList.add('hidden');
         annualCard.classList.remove('active');
+        monthlyCard.classList.remove('hidden');
+        monthlyCard.classList.add('active');
     }
 }
 
