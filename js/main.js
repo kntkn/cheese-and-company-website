@@ -422,3 +422,24 @@ function scrollToContact() {
         });
     }
 }
+
+// Function for pricing tab switching
+function switchPricingTab(planType) {
+    // Remove active class from all tabs and contents
+    document.querySelectorAll('.pricing-tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    document.querySelectorAll('.pricing-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    
+    // Add active class to selected tab
+    const activeTab = planType === 'annual' ? 
+        document.querySelector('.pricing-tab[onclick*="annual"]') :
+        document.querySelector('.pricing-tab[onclick*="monthly"]');
+    activeTab.classList.add('active');
+    
+    // Show selected content
+    const contentId = planType === 'annual' ? 'annual-plan' : 'monthly-plan';
+    document.getElementById(contentId).classList.add('active');
+}
