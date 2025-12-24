@@ -443,3 +443,51 @@ function switchPricingTab(planType) {
     const contentId = planType === 'annual' ? 'annual-plan' : 'monthly-plan';
     document.getElementById(contentId).classList.add('active');
 }
+
+// Features Carousel functionality
+let currentSlideIndex = 0;
+const slides = document.querySelectorAll('.feature-slide');
+const dots = document.querySelectorAll('.dot');
+
+function showSlide(index) {
+    // Remove active class from all slides and dots
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Add active class to current slide and dot
+    if (slides[index] && dots[index]) {
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+    }
+    
+    currentSlideIndex = index;
+}
+
+function nextSlide() {
+    const nextIndex = (currentSlideIndex + 1) % slides.length;
+    showSlide(nextIndex);
+}
+
+function previousSlide() {
+    const prevIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+    showSlide(prevIndex);
+}
+
+function currentSlide(index) {
+    showSlide(index - 1); // Convert to 0-based index
+}
+
+// Auto-advance carousel
+function initCarouselAutoplay() {
+    setInterval(() => {
+        nextSlide();
+    }, 5000); // Change slide every 5 seconds
+}
+
+// Initialize carousel when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    if (slides.length > 0) {
+        showSlide(0); // Show first slide initially
+        initCarouselAutoplay();
+    }
+});
