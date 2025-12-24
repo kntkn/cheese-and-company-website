@@ -425,23 +425,21 @@ function scrollToContact() {
 
 // Function for pricing tab switching
 function switchPricingTab(planType) {
-    // Remove active class from all tabs and contents
-    document.querySelectorAll('.pricing-tab').forEach(tab => {
-        tab.classList.remove('active');
-    });
-    document.querySelectorAll('.pricing-content').forEach(content => {
-        content.classList.remove('active');
-    });
+    const toggleSwitch = document.querySelector('.toggle-switch');
+    const monthlyCard = document.querySelector('.monthly-plan');
+    const annualCard = document.querySelector('.annual-plan');
     
-    // Add active class to selected tab
-    const activeTab = planType === 'annual' ? 
-        document.querySelector('.pricing-tab[onclick*="annual"]') :
-        document.querySelector('.pricing-tab[onclick*="monthly"]');
-    activeTab.classList.add('active');
-    
-    // Show selected content
-    const contentId = planType === 'annual' ? 'annual-plan' : 'monthly-plan';
-    document.getElementById(contentId).classList.add('active');
+    if (planType === 'annual') {
+        // Switch to annual plan
+        toggleSwitch.classList.add('active');
+        monthlyCard.classList.remove('active');
+        annualCard.classList.add('active');
+    } else {
+        // Switch to monthly plan
+        toggleSwitch.classList.remove('active');
+        monthlyCard.classList.add('active');
+        annualCard.classList.remove('active');
+    }
 }
 
 // Features Carousel functionality
