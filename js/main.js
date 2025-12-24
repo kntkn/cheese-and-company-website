@@ -1,24 +1,22 @@
-// Cheese & Company - Main JavaScript
+// Cheese & Company LP運用SaaS - Enhanced JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Smooth scrolling for anchor links
+    // Initialize core functionality
     initSmoothScrolling();
-    
-    // FAQ accordion functionality
-    initFAQAccordion();
-    
-    // Scroll animations
     initScrollAnimations();
-    
-    // Navigation scroll effect
-    initNavigationScroll();
-    
-    // Form enhancements
+    initNavigationEffects();
+    initInteractiveElements();
     initFormEnhancements();
-    
-    // Performance optimizations
     initPerformanceOptimizations();
+    
+    // Editorial magazine effects
+    initMagazineEffects();
+    initHeroCardAnimation();
+    initCounterAnimations();
+    
+    // FAQ functionality
+    initFAQAccordion();
 });
 
 // Smooth Scrolling
@@ -100,22 +98,23 @@ function initScrollAnimations() {
     });
 }
 
-// Navigation Scroll Effect
-function initNavigationScroll() {
+// Enhanced Navigation Effects
+function initNavigationEffects() {
     const nav = document.querySelector('.nav');
     let lastScrollTop = 0;
+    let ticking = false;
     
-    window.addEventListener('scroll', function() {
+    function updateNavigation() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-        // Add/remove background based on scroll position
+        // Enhanced background effect
         if (scrollTop > 50) {
-            nav.classList.add('nav-scrolled');
+            nav.classList.add('scrolled');
         } else {
-            nav.classList.remove('nav-scrolled');
+            nav.classList.remove('scrolled');
         }
         
-        // Hide/show nav on scroll (optional)
+        // Smooth hide/show on scroll
         if (scrollTop > lastScrollTop && scrollTop > 200) {
             nav.style.transform = 'translateY(-100%)';
         } else {
@@ -123,7 +122,164 @@ function initNavigationScroll() {
         }
         
         lastScrollTop = scrollTop;
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(updateNavigation);
+            ticking = true;
+        }
     }, { passive: true });
+}
+
+// Interactive Elements
+function initInteractiveElements() {
+    // Enhanced button interactions
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Portfolio item interactions
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    portfolioItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+    
+    // Pricing card enhancements
+    const pricingCards = document.querySelectorAll('.pricing-card');
+    pricingCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            if (!this.classList.contains('featured')) {
+                this.style.transform = 'translateY(-6px) scale(1.02)';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            if (!this.classList.contains('featured')) {
+                this.style.transform = 'translateY(0) scale(1)';
+            }
+        });
+    });
+}
+
+// Magazine-style Editorial Effects
+function initMagazineEffects() {
+    // Text reveal animation for hero title
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        const words = heroTitle.innerHTML.split(' ');
+        heroTitle.innerHTML = words.map((word, index) => 
+            `<span style="animation-delay: ${index * 0.1}s">${word}</span>`
+        ).join(' ');
+    }
+    
+    // Parallax effect for hero background
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.2;
+            hero.style.transform = `translateY(${rate}px)`;
+        }, { passive: true });
+    }
+    
+    // Magnetic cursor effect for interactive elements
+    const magneticElements = document.querySelectorAll('.btn, .nav-link, .portfolio-item');
+    magneticElements.forEach(element => {
+        element.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            this.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+        });
+        
+        element.addEventListener('mouseleave', function() {
+            this.style.transform = 'translate(0, 0)';
+        });
+    });
+}
+
+// Hero Card Animation
+function initHeroCardAnimation() {
+    const heroCard = document.querySelector('.hero-card');
+    if (heroCard) {
+        // Floating animation
+        let start = null;
+        
+        function animate(timestamp) {
+            if (!start) start = timestamp;
+            const progress = timestamp - start;
+            
+            const y = Math.sin(progress * 0.001) * 5;
+            const rotation = Math.sin(progress * 0.0008) * 2;
+            
+            heroCard.style.transform = `translateY(${y}px) rotate(${2 + rotation}deg)`;
+            
+            requestAnimationFrame(animate);
+        }
+        
+        requestAnimationFrame(animate);
+    }
+}
+
+// Counter Animations for Metrics
+function initCounterAnimations() {
+    const counters = document.querySelectorAll('.metric-value');
+    
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.textContent.replace(/\D/g, '')) || 100;
+                const prefix = counter.textContent.match(/[+%]/g) || [];
+                const suffix = counter.textContent.match(/[%]/g) ? '%' : '';
+                
+                animateCounter(counter, 0, target, 2000, prefix.join(''), suffix);
+                counterObserver.unobserve(counter);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    counters.forEach(counter => {
+        counterObserver.observe(counter);
+    });
+}
+
+function animateCounter(element, start, end, duration, prefix = '', suffix = '') {
+    const startTime = performance.now();
+    
+    function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        const current = Math.floor(start + (end - start) * easeOutCubic(progress));
+        element.textContent = `${prefix}${current}${suffix}`;
+        
+        if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+        }
+    }
+    
+    requestAnimationFrame(updateCounter);
+}
+
+function easeOutCubic(t) {
+    return 1 - Math.pow(1 - t, 3);
 }
 
 // Form Enhancements
