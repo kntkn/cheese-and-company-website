@@ -1,0 +1,295 @@
+/* ===============================================
+   📱 PROFESSIONAL RESPONSIVE DESIGN
+   ===============================================
+   Mobile-First Professional Layout
+   =============================================== */
+
+/* === MOBILE FIRST === */
+/* Base styles optimized for mobile */
+
+/* === MOBILE ADJUSTMENTS === */
+@media (max-width: 768px) {
+    /* Typography scaling for mobile */
+    :root {
+        --text-5xl: 2.25rem;    /* 36px - Smaller hero */
+        --text-6xl: 2.75rem;    /* 44px - Mobile hero */
+        --space-6: 1rem;        /* Tighter spacing */
+        --space-8: 1.5rem;
+        --space-10: 2rem;
+        --space-12: 2.5rem;
+        --space-16: 3rem;
+        --space-20: 4rem;
+        --space-24: 5rem;
+        --space-32: 6rem;
+    }
+
+    /* Navigation */
+    .nav-container {
+        padding: 0 var(--space-4);
+    }
+
+    .nav-brand h1 {
+        font-size: var(--text-lg);
+    }
+
+    .nav-tagline {
+        font-size: var(--text-xs);
+    }
+
+    /* Hero section */
+    .hero {
+        padding: calc(70px + var(--space-16)) 0 var(--space-20) 0;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: var(--text-6xl);
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: var(--text-lg);
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: var(--space-6);
+        align-items: center;
+    }
+
+    .stat {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+    }
+
+    .stat-number {
+        font-size: var(--text-2xl);
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        gap: var(--space-3);
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 320px;
+        padding: var(--space-4) var(--space-6);
+    }
+
+    /* Problem grid */
+    .problem-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    .problem-card {
+        padding: var(--space-6);
+    }
+
+    /* Solution grid */
+    .solution-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-10);
+    }
+
+    .solution-card {
+        padding: var(--space-6);
+    }
+
+    /* Comparison table */
+    .comparison-table {
+        font-size: var(--text-sm);
+    }
+
+    th, td {
+        padding: var(--space-3);
+    }
+
+    /* Process steps */
+    .step {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-4);
+    }
+
+    .step-number {
+        margin: 0 auto;
+    }
+
+    /* Guarantee grid */
+    .guarantee-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    .guarantee-item {
+        padding: var(--space-6);
+    }
+
+    /* Contact section */
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-10);
+    }
+
+    .contact-form {
+        padding: var(--space-8);
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        gap: var(--space-6);
+        text-align: center;
+    }
+
+    /* Container adjustments */
+    .container {
+        padding: 0 var(--space-4);
+    }
+
+    /* Section spacing */
+    section {
+        padding: var(--space-16) 0;
+    }
+}
+
+/* === TABLET STYLES === */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 0 var(--space-8);
+    }
+
+    .hero-stats {
+        gap: var(--space-8);
+    }
+
+    .problem-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .solution-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .guarantee-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-content {
+        gap: var(--space-12);
+    }
+}
+
+/* === DESKTOP STYLES === */
+@media (min-width: 1025px) {
+    /* Enhanced hover effects for desktop */
+    .problem-card:hover,
+    .guarantee-item:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-xl);
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+    }
+
+    /* Larger spacing for desktop */
+    section {
+        padding: var(--space-32) 0;
+    }
+
+    .hero {
+        padding: calc(80px + var(--space-32)) 0 var(--space-32) 0;
+    }
+}
+
+/* === LARGE DESKTOP === */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
+
+    .hero-title {
+        font-size: 4rem;
+    }
+
+    .section-header h2 {
+        font-size: 3rem;
+    }
+}
+
+/* === ACCESSIBILITY === */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* === HIGH CONTRAST === */
+@media (prefers-contrast: high) {
+    :root {
+        --color-primary: #0066cc;
+        --text-primary: #000000;
+        --text-secondary: #333333;
+        --bg-primary: #ffffff;
+    }
+
+    .btn-primary {
+        border: 2px solid var(--text-primary);
+    }
+}
+
+/* === FOCUS STYLES === */
+.btn:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* === PRINT STYLES === */
+@media print {
+    .navbar,
+    .hero-cta,
+    .contact,
+    .footer {
+        display: none;
+    }
+
+    body {
+        color: #000;
+        background: #fff;
+    }
+
+    section {
+        page-break-inside: avoid;
+        padding: 1rem 0;
+    }
+
+    .hero {
+        padding: 1rem 0;
+    }
+}
+
+/* === PERFORMANCE OPTIMIZATIONS === */
+@media (max-width: 768px) {
+    /* Disable expensive effects on mobile */
+    .problem-card:hover,
+    .guarantee-item:hover {
+        transform: none;
+        box-shadow: var(--shadow-md);
+    }
+}
+
+/* === ULTRA-WIDE SCREENS === */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1400px;
+    }
+}
