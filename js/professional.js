@@ -11,6 +11,7 @@ class ProfessionalSite {
         this.setupFormHandling();
         this.setupAccessibility();
         this.setupAnalytics();
+        this.setupPricingToggle();
     }
 
     // Smooth scrolling for navigation links
@@ -317,6 +318,66 @@ class ProfessionalSite {
         // if (typeof gtag !== 'undefined') {
         //     gtag('event', eventName.replace(' ', '_').toLowerCase(), data);
         // }
+    }
+
+    // Pricing toggle functionality
+    setupPricingToggle() {
+        const toggleButtons = document.querySelectorAll('.toggle-btn');
+        const pricingCards = document.querySelectorAll('.pricing-card');
+
+        if (!toggleButtons.length || !pricingCards.length) return;
+
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const selectedPlan = button.getAttribute('data-plan');
+                
+                // Update active button
+                toggleButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Update pricing display
+                if (selectedPlan === 'annual') {
+                    // Show annual pricing (default/recommended)
+                    pricingCards.forEach(card => {
+                        const priceDisplay = card.querySelector('.price-amount');
+                        const periodDisplay = card.querySelector('.price-period');
+                        
+                        if (priceDisplay && priceDisplay.textContent.includes('10,000')) {
+                            priceDisplay.textContent = '8,333';
+                            periodDisplay.textContent = '円/月';
+                            
+                            // Update description
+                            const description = card.querySelector('.card-description');
+                            if (description) {
+                                description.textContent = '年間契約で月額換算（一括払い10万円）';
+                            }
+                        }
+                    });
+                } else if (selectedPlan === 'monthly') {
+                    // Show monthly pricing
+                    pricingCards.forEach(card => {
+                        const priceDisplay = card.querySelector('.price-amount');
+                        const periodDisplay = card.querySelector('.price-period');
+                        
+                        if (priceDisplay && priceDisplay.textContent.includes('8,333')) {
+                            priceDisplay.textContent = '10,000';
+                            periodDisplay.textContent = '円/月';
+                            
+                            // Update description
+                            const description = card.querySelector('.card-description');
+                            if (description) {
+                                description.textContent = '月額契約（毎月お支払い）';
+                            }
+                        }
+                    });
+                }
+
+                // Track the toggle event
+                this.trackEvent('Pricing Toggle', {
+                    plan: selectedPlan
+                });
+            });
+        });
     }
 }
 
