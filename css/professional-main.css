@@ -290,6 +290,25 @@ p {
     box-shadow: var(--shadow-xl);
 }
 
+.completion-time {
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: var(--text-lg);
+    margin: var(--space-4) 0 0 0;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
 /* === HERO ILLUSTRATION === */
 .hero-visual {
     display: flex;
@@ -624,46 +643,141 @@ section {
 
 /* === SERVICE HIGHLIGHTS SECTION === */
 .service-highlights {
-    background: var(--bg-primary);
+    background: linear-gradient(135deg, #f8faff 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-highlights::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230066cc' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    pointer-events: none;
 }
 
 .highlights-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: var(--space-8);
+    margin-top: var(--space-16);
+    position: relative;
+    z-index: 1;
 }
 
 .highlight-card {
-    text-align: center;
-    padding: var(--space-8);
-    background: var(--bg-secondary);
+    background: white;
+    padding: var(--space-12) var(--space-8);
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
-    transition: transform var(--transition-normal);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0,102,204,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.highlight-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.highlight-card:hover::before {
+    opacity: 1;
 }
 
 .highlight-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,102,204,0.15);
+    border-color: var(--color-primary);
 }
 
-/* === SERVICE HIGHLIGHT ILLUSTRATIONS === */
+.highlight-card h3 {
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-6);
+    color: var(--color-primary);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.highlight-card h3 strong {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: var(--text-4xl);
+    display: block;
+    margin-bottom: var(--space-2);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 5px rgba(0,102,204,0.5));
+    }
+    to {
+        filter: drop-shadow(0 0 20px rgba(0,102,204,0.8));
+    }
+}
+
+/* === SERVICE HIGHLIGHT ILLUSTRATIONS - Modern Minimal === */
 .highlight-illustration {
     display: flex;
     justify-content: center;
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-8);
 }
 
 .strength-icon {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    width: 100px;
+    height: 100px;
+    border-radius: var(--radius-xl);
+    background: linear-gradient(135deg, rgba(0,102,204,0.1), rgba(255,61,0,0.1));
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    box-shadow: var(--shadow-lg);
+    border: 2px solid rgba(0,102,204,0.2);
+    transition: all 0.3s ease;
+}
+
+.highlight-card:hover .strength-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, rgba(0,102,204,0.2), rgba(255,61,0,0.2));
+    border-color: var(--color-primary);
+}
+
+/* Modern CSS Icons */
+.zero-cost::before {
+    content: '0¥';
+    font-size: 2rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.safe-migration::before {
+    content: '⚡';
+    font-size: 2rem;
+    filter: hue-rotate(200deg);
+}
+
+.growth::before {
+    content: '📈';
+    font-size: 2rem;
+    filter: hue-rotate(100deg);
 }
 
 /* Zero Cost Illustration */
