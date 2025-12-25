@@ -88,14 +88,46 @@
         padding: var(--space-6);
     }
 
-    /* Solution grid */
-    .solution-grid {
+    /* Service highlights grid */
+    .highlights-grid {
         grid-template-columns: 1fr;
-        gap: var(--space-10);
+        gap: var(--space-8);
     }
 
-    .solution-card {
+    .highlight-card {
         padding: var(--space-6);
+    }
+
+    /* Service detail sections */
+    .service-detail-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+        text-align: center;
+    }
+
+    .service-detail.alt .service-detail-content {
+        grid-template-columns: 1fr;
+    }
+
+    .mockup-phone,
+    .mockup-dashboard,
+    .mockup-analytics {
+        width: 250px;
+        height: 300px;
+    }
+
+    /* Pricing grid */
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+    }
+
+    .pricing-card.featured {
+        transform: none;
+    }
+
+    .pricing-notes ul {
+        grid-template-columns: 1fr;
     }
 
     /* Comparison table */
@@ -170,8 +202,18 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .solution-grid {
+    .highlights-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pricing-card.featured {
+        grid-column: span 2;
+        max-width: 400px;
+        margin: 0 auto;
     }
 
     .guarantee-grid {
