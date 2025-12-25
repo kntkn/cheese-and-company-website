@@ -5,46 +5,58 @@
    Inspired by Harry Potter's Moving Newspaper
    =============================================== */
 
-/* ===== CSS VARIABLES (Magic Color System) ===== */
+/* ===== CSS VARIABLES (Refined Magic Color System) ===== */
 :root {
-    /* === RETRO-FUTURISTIC COLOR PALETTE === */
-    --color-primary: #1a0b2e;           /* Deep Mystery Purple */
-    --color-accent: #7209b7;            /* Vibrant Magic Purple */
-    --color-secondary: #f72585;         /* Energetic Pink */
-    --color-surface: #16213e;           /* Rich Deep Blue */
-    --color-highlight: #4cc9f0;         /* Future Cyan */
+    /* === MINIMALIST MAGIC PALETTE === */
+    --color-primary: #6366f1;           /* Elegant Indigo */
+    --color-accent: #8b5cf6;            /* Refined Purple */
+    --color-secondary: #ec4899;         /* Soft Pink */
+    --color-surface: #1e293b;           /* Readable Dark Blue */
+    --color-highlight: #06b6d4;         /* Clean Cyan */
     
-    /* === AI GLOW COLORS === */
-    --color-ai-glow: #00d4ff;           /* AI Glow */
-    --color-data-stream: #39ff14;       /* Data Stream Green */
-    --color-magic-gold: #ffd700;        /* Magic Gold */
-    --color-energy: #ff006e;            /* Energy Magenta */
-    --color-hologram: #8b5cf6;          /* Hologram Purple */
+    /* === SUBTLE GLOW COLORS === */
+    --color-ai-glow: rgba(99, 102, 241, 0.2); /* Subtle AI Glow */
+    --color-data-stream: rgba(6, 182, 212, 0.3); /* Soft Data Stream */
+    --color-magic-gold: #fbbf24;        /* Warm Gold */
+    --color-energy: rgba(236, 72, 153, 0.2); /* Soft Energy */
+    --color-hologram: rgba(139, 92, 246, 0.15); /* Subtle Hologram */
     
-    /* === BACKGROUND COLORS === */
-    --bg-primary: #0a0a0f;              /* Almost Black */
-    --bg-secondary: #1a1b2e;            /* Dark Blue */
-    --bg-surface: #16213e;              /* Surface Blue */
-    --bg-glass: rgba(255, 255, 255, 0.1); /* Glass Effect */
+    /* === READABLE BACKGROUND COLORS === */
+    --bg-primary: #0f1419;              /* Readable Dark */
+    --bg-secondary: #1e293b;            /* Contrast Blue */
+    --bg-surface: #334155;              /* Light Surface */
+    --bg-glass: rgba(255, 255, 255, 0.05); /* Subtle Glass */
     
-    /* === TEXT COLORS === */
+    /* === HIGH CONTRAST TEXT === */
     --text-primary: #ffffff;             /* Pure White */
-    --text-secondary: #e2e8f0;          /* Light Grey */
-    --text-muted: #94a3b8;              /* Muted Grey */
+    --text-secondary: #f1f5f9;          /* High Contrast Light */
+    --text-muted: #cbd5e1;              /* Readable Muted */
     --text-accent: var(--color-highlight); /* Accent Text */
     
-    /* === FUTURE FONTS === */
-    --font-display: 'Orbitron', monospace;      /* Future Display */
-    --font-body: 'Inter Variable', sans-serif;   /* Modern Body */
-    --font-code: 'Fira Code', monospace;        /* Tech Code */
+    /* === READABLE FONTS === */
+    --font-display: 'Inter Variable', sans-serif;   /* Clean Display */
+    --font-body: 'Inter Variable', sans-serif;      /* Consistent Body */
+    --font-accent: 'Orbitron', monospace;           /* Accent Only */
+    
+    /* === TYPOGRAPHY SCALE === */
+    --text-xs: 0.75rem;     /* 12px */
+    --text-sm: 0.875rem;    /* 14px */
+    --text-base: 1rem;      /* 16px - Base readable size */
+    --text-lg: 1.125rem;    /* 18px */
+    --text-xl: 1.25rem;     /* 20px */
+    --text-2xl: 1.5rem;     /* 24px */
+    --text-3xl: 1.875rem;   /* 30px */
+    --text-4xl: 2.25rem;    /* 36px */
+    --text-5xl: 3rem;       /* 48px - Hero size */
     
     /* === SPACING SYSTEM === */
-    --space-xs: 0.25rem;    /* 4px */
-    --space-sm: 0.5rem;     /* 8px */
-    --space-md: 1rem;       /* 16px */
-    --space-lg: 2rem;       /* 32px */
+    --space-xs: 0.5rem;     /* 8px */
+    --space-sm: 1rem;       /* 16px */
+    --space-md: 2rem;       /* 32px */
+    --space-lg: 3rem;       /* 48px */
     --space-xl: 4rem;       /* 64px */
-    --space-2xl: 8rem;      /* 128px */
+    --space-2xl: 6rem;      /* 96px */
+    --space-3xl: 8rem;      /* 128px */
     
     /* === ANIMATION SYSTEM === */
     --easing-magic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -83,23 +95,158 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     min-height: 100vh;
+    font-size: var(--text-base);
+    font-weight: 400;
 }
 
-/* === MAGICAL BACKGROUND === */
+/* Typography Hierarchy */
+h1 {
+    font-size: var(--text-5xl);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--space-md);
+}
+
+h2 {
+    font-size: var(--text-3xl);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: var(--space-sm);
+}
+
+h3 {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: var(--space-sm);
+}
+
+h4 {
+    font-size: var(--text-xl);
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: var(--space-xs);
+}
+
+p {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    margin-bottom: var(--space-sm);
+    color: var(--text-secondary);
+}
+
+.text-large {
+    font-size: var(--text-lg);
+}
+
+.text-small {
+    font-size: var(--text-sm);
+}
+
+.accent-font {
+    font-family: var(--font-accent);
+}
+
+/* === SECTION LAYOUT & SPACING === */
+section {
+    padding: var(--space-3xl) 0;
+    position: relative;
+}
+
+section:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.section-title {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+}
+
+.section-subtitle {
+    font-size: var(--text-lg);
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* === BUTTON STYLES === */
+.btn-magical {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-sm) var(--space-lg);
+    background: linear-gradient(45deg, var(--color-primary), var(--color-accent));
+    color: var(--text-primary);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--easing-smooth);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    min-height: 48px; /* Touch-friendly */
+}
+
+.btn-magical:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+
+.btn-magical.primary {
+    background: linear-gradient(45deg, var(--color-primary), var(--color-accent));
+}
+
+.btn-magical.secondary {
+    background: transparent;
+    border: 2px solid var(--color-accent);
+    color: var(--color-accent);
+}
+
+/* === INFO ITEMS === */
+.cta-info {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.info-item {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--bg-glass);
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* === REFINED MAGICAL BACKGROUND === */
 .magic-bg {
     position: relative;
     background: linear-gradient(
         135deg,
-        #0a0a0f 0%,
-        #1a0b2e 25%,
-        #16213e 50%,
-        #1a1b2e 75%,
-        #0a0a0f 100%
+        var(--bg-primary) 0%,
+        var(--bg-secondary) 50%,
+        var(--bg-primary) 100%
     );
     background-attachment: fixed;
 }
 
-/* === MAGICAL ATMOSPHERE === */
+/* === SUBTLE MAGICAL ATMOSPHERE === */
 .magic-atmosphere {
     position: fixed;
     top: 0;
@@ -108,6 +255,14 @@ body {
     height: 100%;
     pointer-events: none;
     z-index: 1;
+    opacity: 0.3; /* Much more subtle */
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .magic-atmosphere {
+        display: none;
+    }
 }
 
 /* === PARTICLE FIELD === */

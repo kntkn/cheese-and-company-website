@@ -59,9 +59,9 @@ class FutureMagic {
         this.canvas.height = window.innerHeight;
     }
 
-    // パーティクルシステム初期化
+    // 控えめなパーティクルシステム初期化
     initParticles() {
-        const particleCount = Math.min(150, window.innerWidth * 0.1);
+        const particleCount = Math.min(50, window.innerWidth * 0.05); // 大幅に削減
         this.particles = [];
 
         for (let i = 0; i < particleCount; i++) {
