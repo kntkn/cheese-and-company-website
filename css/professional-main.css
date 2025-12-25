@@ -259,14 +259,6 @@ p {
     margin-bottom: var(--space-4);
 }
 
-.hero-number {
-    color: var(--color-accent);
-    font-weight: 900;
-    background: linear-gradient(135deg, var(--color-accent), #ff6b35);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
 
 .hero-subtitle {
     font-size: var(--text-xl);
@@ -308,22 +300,10 @@ p {
 }
 
 .completion-time {
-    color: var(--color-accent);
-    font-weight: 600;
-    font-size: var(--text-lg);
-    margin: var(--space-4) 0 0 0;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 0.8;
-        transform: scale(1.05);
-    }
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: var(--text-base);
+    margin: var(--space-3) 0 0 0;
 }
 
 /* === HERO ILLUSTRATION === */
@@ -748,103 +728,6 @@ section {
     }
 }
 
-/* === SOCIAL PROOF SECTION === */
-.social-proof {
-    background: linear-gradient(135deg, rgba(0,102,204,0.03), rgba(255,61,0,0.03));
-    border-top: 1px solid rgba(0,102,204,0.1);
-    border-bottom: 1px solid rgba(0,102,204,0.1);
-}
-
-.proof-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: var(--space-12);
-    align-items: center;
-}
-
-.proof-stats {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-8);
-}
-
-.stat-item {
-    text-align: center;
-    padding: var(--space-6);
-    background: white;
-    border-radius: var(--radius-lg);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    border-left: 4px solid var(--color-primary);
-}
-
-.stat-number {
-    display: block;
-    font-size: var(--text-4xl);
-    font-weight: 900;
-    color: var(--color-primary);
-    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1;
-    margin-bottom: var(--space-2);
-}
-
-.stat-label {
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
-    font-weight: 600;
-}
-
-.proof-testimonials {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
-}
-
-.testimonial {
-    background: white;
-    padding: var(--space-8);
-    border-radius: var(--radius-xl);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    border: 1px solid rgba(0,102,204,0.1);
-    position: relative;
-}
-
-.testimonial::before {
-    content: '"';
-    position: absolute;
-    top: -10px;
-    left: 20px;
-    font-size: 4rem;
-    color: var(--color-primary);
-    opacity: 0.2;
-    font-family: serif;
-}
-
-.testimonial-quote {
-    font-size: var(--text-lg);
-    line-height: 1.6;
-    color: var(--text-primary);
-    margin-bottom: var(--space-4);
-    font-style: italic;
-}
-
-.testimonial-author {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-}
-
-.author-name {
-    font-weight: 600;
-    color: var(--color-primary);
-}
-
-.author-location {
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
-}
 
 /* === SERVICE HIGHLIGHT ILLUSTRATIONS - Modern Minimal === */
 .highlight-illustration {
@@ -872,10 +755,10 @@ section {
     border-color: var(--color-primary);
 }
 
-/* Modern CSS Icons */
+/* Modern CSS Icons - No Emojis */
 .zero-cost::before {
-    content: '0¥';
-    font-size: 2rem;
+    content: '0円';
+    font-size: 1.5rem;
     font-weight: 900;
     background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
     -webkit-background-clip: text;
@@ -884,15 +767,17 @@ section {
 }
 
 .safe-migration::before {
-    content: '⚡';
-    font-size: 2rem;
-    filter: hue-rotate(200deg);
+    content: '即日';
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-primary);
 }
 
 .growth::before {
-    content: '📈';
-    font-size: 2rem;
-    filter: hue-rotate(100deg);
+    content: '成長';
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-accent);
 }
 
 /* Zero Cost Illustration */

@@ -51,28 +51,6 @@
         font-size: var(--text-lg);
     }
 
-    /* Social Proof Mobile */
-    .proof-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-8);
-        text-align: center;
-    }
-
-    .stat-item {
-        padding: var(--space-4);
-    }
-
-    .stat-number {
-        font-size: var(--text-3xl);
-    }
-
-    .testimonial {
-        padding: var(--space-6);
-    }
-
-    .testimonial-quote {
-        font-size: var(--text-base);
-    }
 
     .hero-stats {
         flex-direction: column;
